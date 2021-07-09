@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+
+# creates a list. entries are separated by a comma
+my_list = ["192.168.0.5", 5060, "UP"]
+iplist = [ 5060, "80", 55,  "10.0.0.1", "10.20.30.1", "ssh" ]
+
+# prints the first entry in the list
+print("The first item in the list (IP): " + my_list[0] )
+
+# prints the second item in the list
+print("The second item in the list (port): " + str(my_list[1]) )
+
+# prints the last item in the list
+print("The last item in the list (state): " + my_list[2] )
+
+print("The first ip address: " + iplist[3] )
+
+print ("The second ip address: " + iplist[4] )

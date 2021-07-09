@@ -1,0 +1,6 @@
+.example.com
+sonic.dns.example.com
+lookup.supershoes.example.com
+.example.com
+sonic.dns.example.com
+lookup.supershoes.example.com
