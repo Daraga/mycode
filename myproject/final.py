@@ -12,7 +12,7 @@ moves = ("attack", "dodge", "special")
 #character HP
 P1HP = 5
 P2HP = 5
-
+count = 0
 # function to show remaining health
 def showHP():
     print('\33[1m' +Fore.GREEN + "Your HP = " +str(P1HP) +'\33[1m')
@@ -35,12 +35,16 @@ def loseP2():
     print ('\33[1m' + Fore.BLUE + "\nYour foe takes 1 dmg" + '\33[1m')
     print (Style.RESET_ALL)     #stops color change
 
+def cheat():
+    global count
+    count = count + 1
+
 
 
 #opening statement
 input ("\nWelcome to Battleground. Execute moves to overtake your foe. Victory is in your grasp  \nPress enter to continue: ")
 print (f"\nType in one of the available moves. You both start with {P1HP} health\n")
-print (*moves, sep="\n")
+#print (*moves, sep="\n")
 
 while True:
     
@@ -80,15 +84,31 @@ while True:
         showHP()
     
     elif atk == foeatk:    #what happens on ties
-        print ("\nYou and opponent have the same idea and neither of you are damaged")
+        print ("\nYou and opponent move in the same way as if dancing in a mirror. Both of you decide to back off, neither of you managing to score a hit")
         print ('\33[1m' + Fore.BLUE + "\nYou got a TIE" +'\33[1m')    #adds color and bold to text
         print (Style.RESET_ALL)     #stops color change
         showHP()
             
     else:
     #elif atk !=moves:
-        print('\33[1m' + Fore.YELLOW + "\nYou do not know this skill. Shouldve trained harder" +'\33[1m')
-        print(Style.RESET_ALL)
+        cheat()
+        if count ==1:
+            print('\33[1m' + Fore.YELLOW + "\nYou attempt a skill that you do not know and end up on the floor. Your opponent watches you flail in confusion" +'\33[1m')
+            print(Style.RESET_ALL)
+            
+        
+        if count ==2:
+            print('\33[1m' + Fore.YELLOW + "\nYour opponent watches you fail an attack again. Their wariness decreases " +'\33[1m')
+            print(Style.RESET_ALL)
+
+        if count ==3:
+            print('\33[1m' + Fore.YELLOW + "\nAs you fail your attack this time, Your opponent decides that you\'re an idiot and delivers a quick kick to your butt " +'\33[1m')
+            print(Style.RESET_ALL)
+            loseP1()
+            showHP()
+            count = 0
+
+
 
     if P2HP == 0:
         print('\33[1m' + Fore.YELLOW + "\nCONGRATULATIONS. YOU DEFEATED YOUR ARCH NEMESIS" +'\33[1m')
