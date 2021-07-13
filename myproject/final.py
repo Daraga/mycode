@@ -4,6 +4,8 @@ from colorama import Fore, Back, Style  # allows color and style change
 
 import random   #allows you to use random 
 
+import os
+
 #move list for both characters
 moves = ("attack", "dodge", "special")
 
@@ -17,6 +19,7 @@ def showHP():
     print (Style.RESET_ALL)
     print ('\33[1m' + Fore.CYAN + "Foes HP = " + str(P2HP) + '\33[1m')
     print (Style.RESET_ALL)
+
 
 #Have P1 lose 1HP
 def loseP1():
@@ -41,8 +44,10 @@ print (*moves, sep="\n")
 
 while True:
     
+    print (*moves, sep="\n")
     atk = input("\nWhich move will you use: ")
     foeatk = (random.choice(moves))
+    os.system('clear')
 
     if atk == "attack" and foeatk == "dodge":
         print ("\nYour oppenent tries to concentrate but a swift strike knocks them off balance")
@@ -90,5 +95,5 @@ while True:
         break
     
     if P1HP == 0:
-        print('\33[1m' + Fore.YELLOW + "\nYOU HAVE BEEN DEFEATED!" +'\33[1m')
+        print('\33[1m' + Fore.YELLOW + "\nYOU HAVE BEEN DEFEATED! TRAIN HARDER AND TRY AGAIN" +'\33[1m')
         break
